@@ -1,0 +1,41 @@
+import React from "react";
+import "./Dock.scss";
+
+export const Dock = () => {
+  return (
+    <>
+      <footer className="dock">
+        <div className="icon github">
+          <img
+            src="https://imgs.search.brave.com/zszJNSvqAjSPXVIrXOS0CiX7Erkh4v5qRrmvyeK6SGU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3ZncmVwby5jb20v/c2hvdy8zMDM2MTUv/Z2l0aHViLWljb24t/MS1sb2dvLnN2Zw"
+            alt=""
+          />
+        </div>
+        <div className="icon pdf">
+          <img
+            src="https://imgs.search.brave.com/ls7Nzr1zbrLzKmzmi5O8jsWqsOZcbYK_yoOnLVVj_CE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/c3ZncmVwby5jb20v/c2hvdy8yNTU4MTgv/cGRmLnN2Zw"
+            alt=""
+          />
+        </div>
+        <div className="icon note">
+          <img
+            src="https://imgs.search.brave.com/BcTn2a-52gwvAleG69IvaP0fph1h3NMIpMkfZw0snx0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LW5vdGUtaWNvbi1z/dmctZG93bmxvYWQt/cG5nLTEwNDUxMDQ4/LnBuZz9mPXdlYnAm/dz0xMjg"
+            alt=""
+          />
+        </div>
+        <div className="icon mail">
+          <img src="/icons/mail-o.webp" alt="" />
+        </div>
+        <div className="icon spotify">
+          <img src="/icons/spotify.webp" alt="" />
+        </div>
+        <div className="icon link">
+          <img src="/icons/link.webp" alt="" />
+        </div>
+        <div className="icon terminal">
+          <img src="/icons/terminal.webp" alt="" />
+        </div>
+      </footer>
+    </>
+  );
+};
