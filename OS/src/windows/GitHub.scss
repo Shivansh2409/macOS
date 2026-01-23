@@ -11,18 +11,22 @@
 .cards {
   overflow: scroll;
   height: 100%;
+  width: 100%;
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   padding-bottom: 10rem;
+  position: relative;
 }
 
 .container {
-  max-width: 1000px;
   padding: 2rem;
   perspective: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* THE MAGIC of :has() */
@@ -36,7 +40,7 @@
 .card {
   background: #1e293b; /* Fallback color */
   border-radius: 16px;
-  max-width: 50rem;
+  max-width: 30rem;
   box-shadow: var(--card-shadow);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;

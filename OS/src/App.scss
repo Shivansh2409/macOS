@@ -25,8 +25,33 @@ main {
   background-size: cover;
   background-position: center;
   .windows {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: 90%;
   }
+}
+
+* {
+  scrollbar-width: thin; /* 'auto', 'thin', or 'none' */
+  scrollbar-color: #959595 #000000; /* Thumb color, Track color */
+}
+
+/* WebKit browsers (Chrome, Safari, older Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d7fff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
