@@ -2,15 +2,15 @@ import React from "react";
 import { Rnd } from "react-rnd";
 import "./MacWindow.scss";
 
-const MacWindow = ({ children, nameOfWindow = "shiavnsh" }) => {
+const MacWindow = ({ children, width, height }) => {
   return (
     <>
       <Rnd
         default={{
           x: 100,
           y: 100,
-          width: 500,
-          height: 400,
+          width: width || 600,
+          height: height || 400,
         }}
         minWidth={200}
         minHeight={100}

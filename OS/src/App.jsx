@@ -2,6 +2,7 @@ import "./App.scss";
 import { Dock } from "./components/Dock";
 import Nav from "./components/Nav";
 import GitHub from "./windows/GitHub";
+import Note from "./windows/Note";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <main>
         <Nav></Nav>
         <div className="windows">
-          <GitHub></GitHub>
+          {/* <GitHub></GitHub> */}
+          <Note></Note>
         </div>
 
         <Dock></Dock>

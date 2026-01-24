@@ -1,0 +1,65 @@
+.noteRightPanel {
+  height: 100%;
+  flex-grow: 1;
+  background-color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+
+  .note-top {
+    color: white;
+    display: flex;
+    border-bottom: solid 1px #000000;
+    align-items: center;
+    padding-inline: 1.25rem;
+    padding-block: 0.75rem;
+    .nav-x {
+      flex: 1;
+    }
+    .nav-r {
+      color: gray;
+    }
+    .nav-l {
+      cursor: pointer;
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      justify-content: end;
+      .edit {
+        color: rgb(255, 216, 20);
+      }
+      .delete {
+        color: rgb(201, 201, 201);
+      }
+      .share {
+        color: rgb(201, 201, 201);
+      }
+    }
+  }
+  .main-content {
+    flex: 1;
+    padding: 1rem;
+    color: white;
+    overflow-y: auto;
+  }
+  .note-bottom {
+    border-top: solid 1px #000000;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: gray;
+    justify-content: space-between;
+    margin-bottom: 1.7rem;
+    padding-block: 0.5rem;
+
+    .b-l {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .bottom-icon {
+      width: 1.2rem;
+      color: rgb(201, 191, 191);
+    }
+  }
+}
