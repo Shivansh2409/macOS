@@ -28,7 +28,7 @@ const NoteRightPanel = ({ selectedNote, setSelectedNote, handleNoteClick }) => {
           </div>
         </div>
         <div className="main-content">
-          <NoteMainContent key={selectedNote} />
+          <NoteMainContent selectedNote={selectedNote} />
         </div>
         <div className="note-bottom">
           <div className="b-l">

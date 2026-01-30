@@ -41,10 +41,10 @@ const NoteLeftPanel = ({ selectedNote, setSelectedNote, handleNoteClick }) => {
           <div className="hack">
             <h5>HACK</h5>
             <div
-              onClick={() => handleNoteClick(2)}
-              className={`note-card ${selectedNote === 2 ? "selected-note" : " "}`}
+              onClick={() => handleNoteClick(4)}
+              className={`note-card ${selectedNote === 4 ? "selected-note" : " "}`}
             >
-              <h4>Project Ideas</h4>
+              <h4>DavelAI</h4>
               <div className="note-name">
                 <div className="l">
                   <p>Ideas -Details</p>
@@ -54,14 +54,31 @@ const NoteLeftPanel = ({ selectedNote, setSelectedNote, handleNoteClick }) => {
                 </div>
               </div>
               <div className="note-detail">
-                <p>Build a macOS clone using React.js</p>
+                <p>AI power Coding Platform with Friends</p>
+              </div>
+            </div>
+            <div
+              onClick={() => handleNoteClick(2)}
+              className={`note-card ${selectedNote === 2 ? "selected-note" : " "}`}
+            >
+              <h4>WonderLust</h4>
+              <div className="note-name">
+                <div className="l">
+                  <p>Ideas -Details</p>
+                </div>
+                <div className="r">
+                  <p>Feb 5</p>
+                </div>
+              </div>
+              <div className="note-detail">
+                <p>Travel Booking Platform</p>
               </div>
             </div>
             <div
               onClick={() => handleNoteClick(3)}
               className={`note-card ${selectedNote === 3 ? "selected-note" : " "}`}
             >
-              <h4>Project Ideas</h4>
+              <h4>Zerodha Clone – </h4>
               <div className="note-name">
                 <div className="l">
                   <p>Ideas -Details</p>
@@ -71,24 +88,7 @@ const NoteLeftPanel = ({ selectedNote, setSelectedNote, handleNoteClick }) => {
                 </div>
               </div>
               <div className="note-detail">
-                <p>Build a macOS clone using React.js</p>
-              </div>
-            </div>
-            <div
-              onClick={() => handleNoteClick(4)}
-              className={`note-card ${selectedNote === 4 ? "selected-note" : " "}`}
-            >
-              <h4>Project Ideas</h4>
-              <div className="note-name">
-                <div className="l">
-                  <p>Ideas -Details</p>
-                </div>
-                <div className="r">
-                  <p>Feb 5</p>
-                </div>
-              </div>
-              <div className="note-detail">
-                <p>Build a macOS clone using React.js</p>
+                <p>Stock Portfolio Management System</p>
               </div>
             </div>
           </div>

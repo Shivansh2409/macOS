@@ -10,7 +10,7 @@ function App() {
       <main>
         <Nav></Nav>
         <div className="windows">
-          {/* <GitHub></GitHub> */}
+          <GitHub></GitHub>
           <Note></Note>
         </div>
 
