@@ -1,5 +1,6 @@
 import React from "react";
 import "./Dock.scss";
+import { Github } from "lucide-react";
 
 export const Dock = () => {
   return (

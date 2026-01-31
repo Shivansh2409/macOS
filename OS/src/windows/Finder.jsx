@@ -16,7 +16,7 @@ const Finder = () => {
       >
         <div className="finder-window">
           <FinderLeft />
-          <FinderRight />
+          <FinderRight selected={selected} setSelected={setSelected} />
         </div>
       </MacWindow>
     </>

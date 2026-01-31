@@ -1,0 +1,46 @@
+.list {
+  color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+
+  table {
+    width: 100%;
+
+    border-collapse: collapse;
+    text-align: left;
+
+    thead {
+      background-color: #0f0f0f;
+      th {
+        padding: 0.75rem;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid #333333;
+      padding: 0.75rem;
+      font-weight: 300;
+      font-size: 0.85rem;
+      .f-i {
+        width: 1rem;
+        fill: rgb(0, 191, 255);
+        margin-right: 0.5rem;
+        color: rgb(0, 191, 255);
+      }
+    }
+    .f-td {
+      display: flex;
+      align-items: center;
+    }
+    .row:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+
+    .row:hover {
+      background-color: #2a2a2a;
+      cursor: pointer;
+    }
+  }
+}
