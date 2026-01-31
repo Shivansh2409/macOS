@@ -1,8 +1,23 @@
 import React from "react";
 import { Rnd } from "react-rnd";
 import "./MacWindow.scss";
+import {
+  Folder,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  List as ListIcon,
+  Maximize2,
+} from "lucide-react";
 
-const MacWindow = ({ children, width, height }) => {
+const MacWindow = ({
+  children,
+  width,
+  height,
+  finder,
+  setSelected,
+  selected,
+}) => {
   return (
     <>
       <Rnd
@@ -24,52 +39,126 @@ const MacWindow = ({ children, width, height }) => {
         }}
       >
         <div className="mac-window">
-          <div
-            className="mac-window-header"
-            style={{
-              height: "30px",
-              background: "#494949",
-              borderBottom: "1px solid #3b3b3b",
-              borderTopLeftRadius: "0.5rem",
-              borderTopRightRadius: "0.5rem",
-              display: "flex",
-              alignItems: "center",
-              padding: "0 0.75rem",
-            }}
-          >
+          {finder ? (
+            <div className="mac-window-header finder-header">
+              <div className="tool">
+                <div className="tools-left">
+                  <div className="window-buttons">
+                    <div
+                      className="mac-window-button close"
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        background: "#ff5f57",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                    <div
+                      className="mac-window-button minimize"
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        background: "#ffbd2e",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                    <div
+                      className="mac-window-button maximize"
+                      style={{
+                        width: "12px",
+                        height: "12px",
+                        background: "#28c840",
+                        borderRadius: "50%",
+                      }}
+                    ></div>
+                  </div>
+                  <div className="arrows">
+                    <ChevronLeft className="a-l" />
+                    <ChevronRight className="a-r" />
+                  </div>
+                  <div className="folder-i">
+                    <div className="i">
+                      <Folder className="f-i" />
+                    </div>
+                    <span>Hackathons</span>
+                  </div>
+                </div>
+                <div className="tools-right">
+                  <div className="view-options">
+                    <div className="view">
+                      <div
+                        className={`list ${selected === "list" ? "list-active" : ""}`}
+                        onClick={() => {
+                          setSelected("list");
+                        }}
+                      >
+                        <Maximize2 className="w-4 h-4" />
+                      </div>
+                      <div
+                        className={`grid ${selected === "grid" ? "list-active" : ""}`}
+                        onClick={() => {
+                          setSelected("grid");
+                        }}
+                      >
+                        <ListIcon className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="search-bar">
+                    <Search className="search-i" />
+                    <input type="text" placeholder="Search" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
             <div
-              className="mac-window-buttons"
-              style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+              className="mac-window-header"
+              style={{
+                height: "30px",
+                background: "#494949",
+                borderBottom: "1px solid #3b3b3b",
+                borderTopLeftRadius: "0.5rem",
+                borderTopRightRadius: "0.5rem",
+                display: "flex",
+                alignItems: "center",
+                padding: "0 0.75rem",
+              }}
             >
               <div
-                className="mac-window-button close"
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  background: "#ff5f57",
-                  borderRadius: "50%",
-                }}
-              ></div>
-              <div
-                className="mac-window-button minimize"
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  background: "#ffbd2e",
-                  borderRadius: "50%",
-                }}
-              ></div>
-              <div
-                className="mac-window-button maximize"
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  background: "#28c840",
-                  borderRadius: "50%",
-                }}
-              ></div>
+                className="mac-window-buttons"
+                style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+              >
+                <div
+                  className="mac-window-button close"
+                  style={{
+                    width: "12px",
+                    height: "12px",
+                    background: "#ff5f57",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+                <div
+                  className="mac-window-button minimize"
+                  style={{
+                    width: "12px",
+                    height: "12px",
+                    background: "#ffbd2e",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+                <div
+                  className="mac-window-button maximize"
+                  style={{
+                    width: "12px",
+                    height: "12px",
+                    background: "#28c840",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+              </div>
             </div>
-          </div>
+          )}
           <div className="mac-window-content">{children}</div>
         </div>
       </Rnd>
