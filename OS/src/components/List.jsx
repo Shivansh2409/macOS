@@ -2,7 +2,7 @@ import React from "react";
 import "./List.scss";
 import { Folder } from "lucide-react";
 
-const List = () => {
+const List = (pop) => {
   return (
     <>
       <div className="list">
@@ -16,7 +16,13 @@ const List = () => {
               <th>Tags</th>
             </tr>
           </thead>
-          <tr className="row">
+          <tr
+            className="row"
+            onClick={() => {
+              pop.setSelected("list");
+              pop.setItems("HackCBS 8.0");
+            }}
+          >
             <td className="f-td">
               <Folder className="f-i" />
               HackCBS 8.0
@@ -26,7 +32,13 @@ const List = () => {
             <td>Delhi</td>
             <td>Red</td>
           </tr>
-          <tr className="row">
+          <tr
+            className="row"
+            onClick={() => {
+              pop.setSelected("list");
+              pop.setItems("Zinnovation 3.0");
+            }}
+          >
             <td className="f-td">
               <Folder className="f-i" />
               Zinnovation 3.0
@@ -36,7 +48,13 @@ const List = () => {
             <td>Chandigarh</td>
             <td>Blue</td>
           </tr>
-          <tr className="row">
+          <tr
+            className="row"
+            onClick={() => {
+              pop.setSelected("list");
+              pop.setItems("Hack36");
+            }}
+          >
             <td className="f-td">
               <Folder className="f-i" />
               Hack36{" "}
