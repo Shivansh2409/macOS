@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Finder from "./windows/Finder";
 import GitHub from "./windows/GitHub";
 import Note from "./windows/Note";
+import Pdf from "./windows/Pdf";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
         <Nav></Nav>
         <div className="windows">
           {/* <GitHub></GitHub>
-          <Note></Note> */}
+          <Note></Note>
           <Finder></Finder>
+          <Pdf></Pdf> */}
         </div>
 
         <Dock></Dock>

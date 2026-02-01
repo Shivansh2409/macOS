@@ -17,13 +17,15 @@ const MacWindow = ({
   finder,
   setSelected,
   selected,
+  initialX = 100,
+  initialY = 100,
 }) => {
   return (
     <>
       <Rnd
         default={{
-          x: 100,
-          y: 100,
+          x: initialX,
+          y: initialY,
           width: width || 600,
           height: height || 400,
         }}
