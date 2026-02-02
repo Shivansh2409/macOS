@@ -3,7 +3,7 @@ import "./Finder.scss";
 import MacWindow from "../windows/MacWindow";
 import FinderLeft from "../components/FinderLeft";
 import FinderRight from "../components/FinderRight";
-const Finder = () => {
+const Finder = (pop) => {
   const [selected, setSelected] = useState("grid");
   return (
     <>
@@ -13,6 +13,9 @@ const Finder = () => {
         finder={true}
         setSelected={setSelected}
         selected={selected}
+        title="Finder"
+        Zindex={pop.Index.Finder}
+        setIndex={pop.setIndex}
       >
         <div className="finder-window">
           <FinderLeft />

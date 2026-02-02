@@ -19,6 +19,9 @@ const MacWindow = ({
   selected,
   initialX = 100,
   initialY = 100,
+  Zindex,
+  setIndex,
+  title,
 }) => {
   return (
     <>
@@ -38,11 +41,22 @@ const MacWindow = ({
           borderRadius: "0.5rem",
           background: "#0f0f0f",
           boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+          zIndex: Zindex || 1,
         }}
       >
         <div className="mac-window">
           {finder ? (
-            <div className="mac-window-header finder-header">
+            <div
+              className="mac-window-header finder-header"
+              onClick={() => {
+                if (title === "Finder") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Finder: Math.max(...Object.values(prev)) + 1,
+                  }));
+                }
+              }}
+            >
               <div className="tool">
                 <div className="tools-left">
                   <div className="window-buttons">
@@ -126,6 +140,36 @@ const MacWindow = ({
                 alignItems: "center",
                 padding: "0 0.75rem",
               }}
+              onClick={() => {
+                console.log("Clicked on", title);
+                console.log("Zindex:", Zindex);
+                if (title === "Finder") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Finder: Math.max(...Object.values(prev)) + 1,
+                  }));
+                } else if (title === "Notes") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Note: Math.max(...Object.values(prev)) + 1,
+                  }));
+                } else if (title === "Spotify") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Spoti: Math.max(...Object.values(prev)) + 1,
+                  }));
+                } else if (title === "resume") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Pdf: Math.max(...Object.values(prev)) + 1,
+                  }));
+                } else if (title === "GitHub - Projects") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    GitHub: Math.max(...Object.values(prev)) + 1,
+                  }));
+                }
+              }}
             >
               <div
                 className="mac-window-buttons"
@@ -161,7 +205,41 @@ const MacWindow = ({
               </div>
             </div>
           )}
-          <div className="mac-window-content">{children}</div>
+          <div
+            className="mac-window-content"
+            onClick={() => {
+              console.log("Clicked on", title);
+              console.log("Zindex:", Zindex);
+              if (title === "Finder") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Finder: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Notes") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Note: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Spotify") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Spoti: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "resume") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Pdf: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "GitHub - Projects") {
+                setIndex((prev) => ({
+                  ...prev,
+                  GitHub: Math.max(...Object.values(prev)) + 1,
+                }));
+              }
+            }}
+          >
+            {children}
+          </div>
         </div>
       </Rnd>
     </>

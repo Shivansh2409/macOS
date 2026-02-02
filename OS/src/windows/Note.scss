@@ -3,3 +3,7 @@
   width: 100%;
   display: flex;
 }
+
+.note-window {
+  z-index: -100;
+}

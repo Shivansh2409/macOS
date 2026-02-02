@@ -5,14 +5,24 @@ import NoteLeftPanel from "../components/NoteLeftPanel";
 import NoteRightPanel from "../components/NoteRightPanel";
 import "./Note.scss";
 
-const Note = () => {
+const Note = (pop) => {
   const [selectedNote, setSelectedNote] = useState(1);
 
   const handleNoteClick = (noteId) => {
     setSelectedNote(noteId);
   };
   return (
-    <MacWindow nameOfWindow="Note" width={1100} height={500}>
+    <MacWindow
+      nameOfWindow="Note"
+      width={1100}
+      height={500}
+      className="note-window"
+      initialX={250}
+      initialY={100}
+      title="Notes"
+      Zindex={pop.Index.Note}
+      setIndex={pop.setIndex}
+    >
       <div className="note">
         <NoteLeftPanel
           selectedNote={selectedNote}

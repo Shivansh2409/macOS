@@ -2,7 +2,7 @@ import React from "react";
 import "./Pdf.scss";
 import MacWindow from "./MacWindow";
 
-const Pdf = () => {
+const Pdf = (pop) => {
   return (
     <>
       <MacWindow
@@ -10,7 +10,9 @@ const Pdf = () => {
         height={700}
         initialX={200}
         initialY={1}
-        title="resume.pdf"
+        title="resume"
+        Zindex={pop.Index.Pdf}
+        setIndex={pop.setIndex}
       >
         <div className="pdf-viewer">
           <iframe src="/resume.pdf" title="PDF Viewer"></iframe>

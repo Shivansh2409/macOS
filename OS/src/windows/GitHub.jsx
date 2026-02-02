@@ -2,7 +2,7 @@ import React from "react";
 import MacWindow from "../windows/MacWindow";
 import "./GitHub.scss";
 
-const GitHub = () => {
+const GitHub = (pop) => {
   const projects = [
     {
       title: "Davel AI - AI Content Generator ",
@@ -58,7 +58,13 @@ const GitHub = () => {
   ];
   return (
     <>
-      <MacWindow>
+      <MacWindow
+        Zindex={pop.Index.GitHub}
+        width={900}
+        height={600}
+        title="GitHub - Projects"
+        setIndex={pop.setIndex}
+      >
         <div className="cards container">
           {projects.map((project, index) => (
             <div className="card" key={index}>
