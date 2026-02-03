@@ -13,6 +13,8 @@ const Pdf = (pop) => {
         title="resume"
         Zindex={pop.Index.Pdf}
         setIndex={pop.setIndex}
+        setOpenWindows={pop.setOpenWindows}
+        openWindows={pop.openWindows}
       >
         <div className="pdf-viewer">
           <iframe src="/resume.pdf" title="PDF Viewer"></iframe>

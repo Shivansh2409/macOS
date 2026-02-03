@@ -22,6 +22,8 @@ const Note = (pop) => {
       title="Notes"
       Zindex={pop.Index.Note}
       setIndex={pop.setIndex}
+      setOpenWindows={pop.setOpenWindows}
+      openWindows={pop.openWindows}
     >
       <div className="note">
         <NoteLeftPanel

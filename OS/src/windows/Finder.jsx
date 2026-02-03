@@ -16,6 +16,8 @@ const Finder = (pop) => {
         title="Finder"
         Zindex={pop.Index.Finder}
         setIndex={pop.setIndex}
+        setOpenWindows={pop.setOpenWindows}
+        openWindows={pop.openWindows}
       >
         <div className="finder-window">
           <FinderLeft />

@@ -12,6 +12,8 @@ const Spoti = (pop) => {
       title="Spotify"
       Zindex={pop.Index.Spoti}
       setIndex={pop.setIndex}
+      setOpenWindows={pop.setOpenWindows}
+      openWindows={pop.openWindows}
     >
       <div className="spoti-viewer" onClick={() => console.log(pop.setIndex)}>
         <iframe

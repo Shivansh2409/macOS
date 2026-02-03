@@ -28,39 +28,53 @@ function App() {
       <main>
         <Nav></Nav>
         <div className="windows">
-          <GitHub
-            Index={index}
-            setIndex={setIndex}
-            openWindows={openWindows}
-            setOpenWindows={setOpenWindows}
-          ></GitHub>
-          <Note
-            Index={index}
-            setIndex={setIndex}
-            openWindows={openWindows}
-            setOpenWindows={setOpenWindows}
-          ></Note>
-          <Finder
-            Index={index}
-            setIndex={setIndex}
-            openWindows={openWindows}
-            setOpenWindows={setOpenWindows}
-          ></Finder>
-          <Pdf
-            Index={index}
-            setIndex={setIndex}
-            openWindows={openWindows}
-            setOpenWindows={setOpenWindows}
-          ></Pdf>
-          <Spoti
-            Index={index}
-            setIndex={setIndex}
-            openWindows={openWindows}
-            setOpenWindows={setOpenWindows}
-          ></Spoti>
+          {openWindows.GitHub && (
+            <GitHub
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></GitHub>
+          )}
+          {openWindows.Note && (
+            <Note
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Note>
+          )}
+          {openWindows.Finder && (
+            <Finder
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Finder>
+          )}
+          {openWindows.Pdf && (
+            <Pdf
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Pdf>
+          )}
+          {openWindows.Spoti && (
+            <Spoti
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Spoti>
+          )}
         </div>
 
-        <Dock></Dock>
+        <Dock
+          openWindows={openWindows}
+          setOpenWindows={setOpenWindows}
+          setIndex={setIndex}
+        ></Dock>
       </main>
     </>
   );

@@ -22,6 +22,8 @@ const MacWindow = ({
   Zindex,
   setIndex,
   title,
+  setOpenWindows,
+  openWindows,
 }) => {
   return (
     <>
@@ -67,6 +69,13 @@ const MacWindow = ({
                         height: "12px",
                         background: "#ff5f57",
                         borderRadius: "50%",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        setOpenWindows((prev) => ({
+                          ...prev,
+                          [title]: false,
+                        }));
                       }}
                     ></div>
                     <div
@@ -141,8 +150,6 @@ const MacWindow = ({
                 padding: "0 0.75rem",
               }}
               onClick={() => {
-                console.log("Clicked on", title);
-                console.log("Zindex:", Zindex);
                 if (title === "Finder") {
                   setIndex((prev) => ({
                     ...prev,
@@ -182,6 +189,35 @@ const MacWindow = ({
                     height: "12px",
                     background: "#ff5f57",
                     borderRadius: "50%",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    if (title === "Finder") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Finder: false,
+                      }));
+                    } else if (title === "Notes") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Note: false,
+                      }));
+                    } else if (title === "Spotify") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Spoti: false,
+                      }));
+                    } else if (title === "resume") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Pdf: false,
+                      }));
+                    } else if (title === "GitHub - Projects") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        GitHub: false,
+                      }));
+                    }
                   }}
                 ></div>
                 <div
@@ -202,14 +238,13 @@ const MacWindow = ({
                     borderRadius: "50%",
                   }}
                 ></div>
+                {openWindows.GitHub}
               </div>
             </div>
           )}
           <div
             className="mac-window-content"
             onClick={() => {
-              console.log("Clicked on", title);
-              console.log("Zindex:", Zindex);
               if (title === "Finder") {
                 setIndex((prev) => ({
                   ...prev,

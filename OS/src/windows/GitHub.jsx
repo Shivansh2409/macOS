@@ -64,6 +64,8 @@ const GitHub = (pop) => {
         height={600}
         title="GitHub - Projects"
         setIndex={pop.setIndex}
+        setOpenWindows={pop.setOpenWindows}
+        openWindows={pop.openWindows}
       >
         <div className="cards container">
           {projects.map((project, index) => (
