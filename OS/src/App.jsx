@@ -7,6 +7,7 @@ import GitHub from "./windows/GitHub";
 import Note from "./windows/Note";
 import Pdf from "./windows/Pdf";
 import Spoti from "./windows/Spoti";
+import Links from "./windows/Links";
 
 function App() {
   const [index, setIndex] = useState({
@@ -15,6 +16,7 @@ function App() {
     Finder: 1,
     Pdf: 1,
     Spoti: 1,
+    Links: 1,
   });
   const [openWindows, setOpenWindows] = useState({
     GitHub: false,
@@ -22,6 +24,7 @@ function App() {
     Finder: false,
     Pdf: false,
     Spoti: false,
+    Links: false,
   });
   return (
     <>
@@ -67,6 +70,15 @@ function App() {
               openWindows={openWindows}
               setOpenWindows={setOpenWindows}
             ></Spoti>
+          )}
+
+          {openWindows.Links && (
+            <Links
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Links>
           )}
         </div>
 

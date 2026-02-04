@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dock.scss";
-import { Github, AppWindow } from "lucide-react";
+import { Github, AppWindow, Notebook } from "lucide-react";
 
 export const Dock = (pop) => {
   return (
@@ -49,10 +49,7 @@ export const Dock = (pop) => {
             });
           }}
         >
-          <img
-            src="https://imgs.search.brave.com/BcTn2a-52gwvAleG69IvaP0fph1h3NMIpMkfZw0snx0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aWNvbnNjb3V0LmNv/bS9pY29uL2ZyZWUv/cG5nLTI1Ni9mcmVl/LW5vdGUtaWNvbi1z/dmctZG93bmxvYWQt/cG5nLTEwNDUxMDQ4/LnBuZz9mPXdlYnAm/dz0xMjg"
-            alt=""
-          />
+          <Notebook className="find"></Notebook>
         </div>
         <div className="icon mail">
           <img src="/icons/mail-o.webp" alt="" />
@@ -70,7 +67,17 @@ export const Dock = (pop) => {
         >
           <img src="/icons/spotify.webp" alt="" />
         </div>
-        <div className="icon link">
+        <div
+          className="icon link"
+          onClick={() => {
+            pop.setOpenWindows((prev) => {
+              return { ...prev, Links: true };
+            });
+            pop.setIndex((prev) => {
+              return { ...prev, Links: Math.max(...Object.values(prev)) + 1 };
+            });
+          }}
+        >
           <img src="/icons/link.webp" alt="" />
         </div>
         <div className="icon terminal">

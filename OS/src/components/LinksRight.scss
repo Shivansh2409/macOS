@@ -1,0 +1,110 @@
+.social {
+  color: antiquewhite;
+  padding: 1rem;
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .card-container {
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+
+    .card-social {
+      flex: 1;
+      width: 15rem;
+      padding: 2rem;
+      padding-inline: 3rem;
+      border-radius: 1rem;
+      border: 1px solid gray;
+      width: auto;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+      &:active {
+        scale: 0.8;
+      }
+      .social-name {
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+      .i {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+    .instagram {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 195, 255, 0.092);
+      transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      background: linear-gradient(
+        45deg,
+        #f09433,
+        #e6683c,
+        #dc2743,
+        #cc2366,
+        #bc1888
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      &:hover {
+        border: 1px solid #cc2366;
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        color: aliceblue;
+      }
+      .i {
+        background: linear-gradient(
+          45deg,
+          #f09433,
+          #e6683c,
+          #dc2743,
+          #cc2366,
+          #bc1888
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: #bc1888;
+      }
+    }
+    .link-in {
+      color: rgb(127, 208, 255);
+      &:hover {
+        border: 1px solid rgb(0, 191, 255);
+        background-color: rgba(0, 195, 255, 0.092);
+      }
+      .i {
+        color: rgb(0, 191, 255);
+      }
+    }
+    .github-social {
+      color: aliceblue;
+      border: 1px solid rgba(245, 245, 245, 0.432);
+      padding-inline: 3rem;
+      &:hover {
+        border: 1px solid rgb(199, 199, 199);
+        background-color: rgba(144, 144, 144, 0.205);
+      }
+    }
+  }
+}
