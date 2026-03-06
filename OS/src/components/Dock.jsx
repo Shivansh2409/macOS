@@ -98,7 +98,20 @@ export const Dock = (pop) => {
         >
           <Images className="find"></Images>
         </div>
-        <div className="icon terminal">
+        <div
+          className="icon terminal"
+          onClick={() => {
+            pop.setOpenWindows((prev) => {
+              return { ...prev, Terminal: true };
+            });
+            pop.setIndex((prev) => {
+              return {
+                ...prev,
+                Terminal: Math.max(...Object.values(prev)) + 1,
+              };
+            });
+          }}
+        >
           <img src="/icons/terminal.webp" alt="" />
         </div>
         <div

@@ -9,8 +9,8 @@ import Note from "./windows/Note";
 import Pdf from "./windows/Pdf";
 import Spoti from "./windows/Spoti";
 import Links from "./windows/Links";
-
 import Photo from "./windows/Photo";
+import TerminalApp from "./windows/Terminal";
 
 function App() {
   const [index, setIndex] = useState({
@@ -22,6 +22,7 @@ function App() {
     Links: 1,
     Image: 1,
     Photo: 1,
+    Terminal: 1,
   });
   const [openWindows, setOpenWindows] = useState({
     GitHub: false,
@@ -31,6 +32,7 @@ function App() {
     Spoti: false,
     Links: false,
     Photo: false,
+    Terminal: false,
   });
 
   useEffect(() => {
@@ -104,6 +106,14 @@ function App() {
         setIndex((prev) => ({
           ...prev,
           Photo: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "t") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+T terminal)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Terminal: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Terminal: Math.max(...Object.values(prev)) + 1,
         }));
       }
     };
@@ -179,6 +189,15 @@ function App() {
               Image={image}
               setImage={setImage}
             ></Photo>
+          )}
+
+          {openWindows.Terminal && (
+            <TerminalApp
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></TerminalApp>
           )}
         </div>
 

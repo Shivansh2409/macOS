@@ -10,7 +10,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
+  padding-bottom: 2rem;
   // Override react-console-emulator styles
   .cemulator__container {
     background: transparent !important;
