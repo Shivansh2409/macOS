@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dock.scss";
-import { Github, AppWindow, Notebook, Mail } from "lucide-react";
+import { Github, AppWindow, Notebook, Mail, Images } from "lucide-react";
 
 export const Dock = (pop) => {
   return (
@@ -79,6 +79,19 @@ export const Dock = (pop) => {
           }}
         >
           <img src="/icons/link.webp" alt="" />
+        </div>
+        <div
+          className="icon photo"
+          onClick={() => {
+            pop.setOpenWindows((prev) => {
+              return { ...prev, Photo: true };
+            });
+            pop.setIndex((prev) => {
+              return { ...prev, Photo: Math.max(...Object.values(prev)) + 1 };
+            });
+          }}
+        >
+          <Images className="find"></Images>
         </div>
         <div className="icon terminal">
           <img src="/icons/terminal.webp" alt="" />

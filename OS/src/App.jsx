@@ -10,6 +10,7 @@ import Pdf from "./windows/Pdf";
 import Spoti from "./windows/Spoti";
 import Links from "./windows/Links";
 import Image from "./windows/Image";
+import Photo from "./windows/Photo";
 
 function App() {
   const [index, setIndex] = useState({
@@ -20,6 +21,7 @@ function App() {
     Spoti: 1,
     Links: 1,
     Image: 1,
+    Photo: 1,
   });
   const [openWindows, setOpenWindows] = useState({
     GitHub: false,
@@ -29,6 +31,7 @@ function App() {
     Spoti: false,
     Links: false,
     Image: false,
+    Photo: false,
   });
 
   useEffect(() => {
@@ -94,6 +97,14 @@ function App() {
         setIndex((prev) => ({
           ...prev,
           Image: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "o") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+O open)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Photo: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Photo: Math.max(...Object.values(prev)) + 1,
         }));
       }
     };
@@ -169,6 +180,15 @@ function App() {
               Image={image}
               setImage={setImage}
             ></Image>
+          )}
+
+          {openWindows.Photo && (
+            <Photo
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+            ></Photo>
           )}
         </div>
 

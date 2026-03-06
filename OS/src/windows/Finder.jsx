@@ -5,6 +5,16 @@ import FinderLeft from "../components/FinderLeft";
 import FinderRight from "../components/FinderRight";
 const Finder = (pop) => {
   const [selected, setSelected] = useState("grid");
+
+  const openPhoto = () => {
+    pop.setOpenWindows((prev) => {
+      return { ...prev, Photo: true };
+    });
+    pop.setIndex((prev) => {
+      return { ...prev, Photo: Math.max(...Object.values(prev)) + 1 };
+    });
+  };
+
   return (
     <>
       <MacWindow
@@ -22,7 +32,7 @@ const Finder = (pop) => {
         openWindows={pop.openWindows}
       >
         <div className="finder-window">
-          <FinderLeft />
+          <FinderLeft onOpenPhoto={openPhoto} />
           <FinderRight
             selected={selected}
             setSelected={setSelected}

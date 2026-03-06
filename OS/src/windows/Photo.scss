@@ -1,0 +1,278 @@
+// Photo App - macOS Photos Style
+.photo-app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(30, 30, 30, 0.95);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+
+// Toolbar
+.photo-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(40, 40, 40, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .toolbar-left {
+    .album-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+
+  .toolbar-right {
+    .photo-count {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+// Photo Grid
+.photo-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 4px;
+  padding: 8px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  .photo-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-overlay {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+
+      .heart-icon {
+        width: 20px;
+        height: 20px;
+        color: #ff3b30;
+        fill: #ff3b30;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+      .photo-overlay {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Slideshow View
+.slideshow-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .slideshow-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: rgba(40, 40, 40, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: none;
+      border: none;
+      color: #007aff;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+
+      .btn-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      &:hover {
+        background: rgba(0, 122, 255, 0.15);
+      }
+    }
+
+    .photo-number {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .slideshow-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+
+    .nav-btn {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      z-index: 10;
+
+      &.prev {
+        left: 20px;
+      }
+
+      &.next {
+        right: 20px;
+      }
+
+      .nav-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+      }
+    }
+
+    .main-photo {
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  .slideshow-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(25, 25, 25, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-x: auto;
+
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &.active {
+        opacity: 1;
+        border-color: #007aff;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2px;
+    padding: 4px;
+  }
+
+  .slideshow-content {
+    .nav-btn {
+      width: 36px;
+      height: 36px;
+
+      &.prev {
+        left: 10px;
+      }
+
+      &.next {
+        right: 10px;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .slideshow-thumbnails {
+    .thumbnail {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

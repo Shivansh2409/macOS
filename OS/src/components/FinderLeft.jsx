@@ -20,9 +20,10 @@ import {
   Maximize2,
   X,
   Star,
+  Images,
 } from "lucide-react";
 
-const FinderLeft = () => {
+const FinderLeft = ({ onOpenPhoto }) => {
   return (
     <>
       <div className="finder-left">
@@ -47,6 +48,14 @@ const FinderLeft = () => {
           <div className="fev-item">
             <Download className="fev-icon" />
             Downloads
+          </div>
+          <div
+            className="fev-item"
+            onClick={onOpenPhoto}
+            style={{ cursor: "pointer" }}
+          >
+            <Images className="fev-icon" />
+            Photos
           </div>
         </div>
         <div className="fev">
