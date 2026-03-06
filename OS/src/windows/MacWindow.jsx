@@ -238,6 +238,11 @@ const MacWindow = ({
                         ...prev,
                         Links: false,
                       }));
+                    } else if (title === "Photo") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Photo: false,
+                      }));
                     }
                   }}
                 ></div>
@@ -300,6 +305,11 @@ const MacWindow = ({
                 setIndex((prev) => ({
                   ...prev,
                   Links: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Photo") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Photo: Math.max(...Object.values(prev)) + 1,
                 }));
               }
             }}

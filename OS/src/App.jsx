@@ -9,7 +9,7 @@ import Note from "./windows/Note";
 import Pdf from "./windows/Pdf";
 import Spoti from "./windows/Spoti";
 import Links from "./windows/Links";
-import Image from "./windows/Image";
+
 import Photo from "./windows/Photo";
 
 function App() {
@@ -30,7 +30,6 @@ function App() {
     Pdf: false,
     Spoti: false,
     Links: false,
-    Image: false,
     Photo: false,
   });
 
@@ -171,23 +170,14 @@ function App() {
             ></Links>
           )}
 
-          {openWindows.Image && (
-            <Image
-              Index={index}
-              setIndex={setIndex}
-              openWindows={openWindows}
-              setOpenWindows={setOpenWindows}
-              Image={image}
-              setImage={setImage}
-            ></Image>
-          )}
-
           {openWindows.Photo && (
             <Photo
               Index={index}
               setIndex={setIndex}
               openWindows={openWindows}
               setOpenWindows={setOpenWindows}
+              Image={image}
+              setImage={setImage}
             ></Photo>
           )}
         </div>

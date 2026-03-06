@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Grid.scss";
 import { Folder, Clock, MapPin, ImageIcon, Monitor } from "lucide-react";
+import Photo from "../windows/Photo";
 
 const Grid = ({
   items,
@@ -162,7 +163,7 @@ This is just the beginning for ResQMe — and for me.`,
                         key={index}
                         onClick={() => {
                           setOpenWindows((prev) => {
-                            return { ...prev, Image: true };
+                            return { ...prev, Photo: true };
                           });
                           setImage(imgSrc);
                           setIndex((prev) => {
@@ -187,10 +188,7 @@ This is just the beginning for ResQMe — and for me.`,
                         key={index}
                         onClick={() => {
                           setOpenWindows((prev) => {
-                            return { ...prev, Image: true };
-                          });
-                          setOpenWindows((prev) => {
-                            return { ...prev, Image: true };
+                            return { ...prev, Photo: true };
                           });
                           setImage(imgSrc);
                         }}
