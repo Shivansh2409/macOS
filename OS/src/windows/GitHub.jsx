@@ -29,6 +29,52 @@ const GitHub = (pop) => {
       updatedAt: "2 days ago",
     },
     {
+      title: "AI Overlay",
+      description:
+        "An intelligent overlay interface powered by AI, providing contextual assistance and real-time information processing seamlessly over other applications.",
+      tech: ["React", "TypeScript", "OpenAI API", "Tailwind CSS"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&auto=format&fit=crop",
+      liveUrl: "#",
+      githubUrl: "https://github.com/Shivansh2409/ai-overlay",
+      stars: 124,
+      forks: 38,
+      language: "JavaScript",
+      languageColor: "#f1e05a",
+      updatedAt: "2 days ago",
+    },
+    {
+      title: "Real-Time Quiz Platform",
+      description:
+        "An interactive multiplayer quiz application with live leaderboards, timed questions, and real-time synchronization across connected clients.",
+      tech: ["React", "Node.js", "Socket.IO", "Express.js", "MongoDB"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=800&auto=format&fit=crop",
+      liveUrl: "https://shivansh-quiz.duckdns.org/",
+      githubUrl: "https://github.com/Shivansh2409/realtime-quiz-platform",
+      stars: 64,
+      forks: 18,
+      language: "JavaScript",
+      languageColor: "#f1e05a",
+      updatedAt: "3 days ago",
+    },
+    {
+      title: "LinkTree (Instagram Link-in-Bio Clone)",
+      description:
+        "A customizable link-in-bio platform allowing users to aggregate, manage, and share all their important social and portfolio links from a single page.",
+      tech: ["React", "Node.js", "MongoDB", "Express.js", "CSS"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&auto=format&fit=crop",
+      liveUrl:
+        "https://link-tree-bice-tau.vercel.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAQYH_1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae3XzK04RVm5avZSUeEx3eHKGvnHqBQ1eV9Ppjv8F3b8vvC_vMaMyklVBgozg_aem_9goJxGTFDVP7rzYnMfKGaA",
+      githubUrl: "https://github.com/Shivansh2409/LinkTree",
+      stars: 88,
+      forks: 24,
+      language: "JavaScript",
+      languageColor: "#f1e05a",
+      updatedAt: "4 days ago",
+    },
+    {
       title: "WonderLust - Travel Review App",
       description:
         "A full-stack CRUD-based travel review platform where users can share destinations, post reviews, upload images, and view places via an interactive map.",
@@ -54,21 +100,68 @@ const GitHub = (pop) => {
       githubUrl: "https://github.com/Shivansh2409/ZerodhaClone",
       stars: 156,
       forks: 67,
-      language: "CSS",
-      languageColor: "#563d7c",
+      language: "JavaScript",
+      languageColor: "#f1e05a",
       updatedAt: "3 days ago",
     },
     {
-      title: "Portfolio OS - This Project",
+      title: "MacOS Portfolio",
       description:
-        "A macOS-inspired web-based desktop simulation built with React, featuring glassmorphism design and responsive layout.",
-      tech: ["React", "Vite", "SCSS", "react-rnd", "lucide-react"],
+        "A web-based macOS desktop simulation built to showcase projects, featuring draggable windows, a functional dock, and a sleek glassmorphism UI.",
+      tech: ["React", "Vite", "SCSS"],
       imageUrl:
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop",
       liveUrl: "#",
-      githubUrl: "https://github.com/Shivansh2409/portfolio-os",
-      stars: 234,
-      forks: 89,
+      githubUrl: "https://github.com/Shivansh2409/macOS",
+      stars: 210,
+      forks: 65,
+      language: "JavaScript",
+      languageColor: "#f1e05a",
+      updatedAt: "Today",
+    },
+
+    {
+      title: "Uber Clone",
+      description:
+        "A full-stack ride-booking application featuring real-time location tracking, driver-rider matching, and interactive map integration.",
+      tech: ["React", "Node.js", "MongoDB", "Mapbox", "Socket.IO"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&auto=format&fit=crop",
+      liveUrl: "#",
+      githubUrl: "https://github.com/Shivansh2409/UBER-clone",
+      stars: 85,
+      forks: 22,
+      language: "JavaScript",
+      languageColor: "#f1e05a",
+      updatedAt: "1 week ago",
+    },
+
+    {
+      title: "Figma Clone",
+      description:
+        "A collaborative web-based design tool allowing multiple users to draw, edit, and share canvas elements simultaneously in real-time.",
+      tech: ["React", "Canvas API", "Socket.IO", "Tailwind CSS"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop",
+      liveUrl: "https://figma-fwhyppjm0-shivansh2409s-projects.vercel.app/",
+      githubUrl: "https://github.com/Shivansh2409/Figma_DOM",
+      stars: 145,
+      forks: 41,
+      language: "TypeScript",
+      languageColor: "#3178c6",
+      updatedAt: "5 days ago",
+    },
+    {
+      title: "Productivity Dashboard",
+      description:
+        "A centralized task management and productivity tracking dashboard featuring Kanban boards, calendar integrations, and analytics.",
+      tech: ["React", "Node.js", "Express.js", "MongoDB", "Chart.js"],
+      imageUrl:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop",
+      liveUrl: "https://shivansh2409.github.io/Productivity-Dashboard/",
+      githubUrl: "https://github.com/Shivansh2409/Productivity-Dashboard",
+      stars: 78,
+      forks: 15,
       language: "JavaScript",
       languageColor: "#f1e05a",
       updatedAt: "Today",
@@ -80,7 +173,7 @@ const GitHub = (pop) => {
       <MacWindow
         Zindex={pop.Index.GitHub}
         width={1100}
-        height={700}
+        height={600}
         title="GitHub - Projects"
         setIndex={pop.setIndex}
         setOpenWindows={pop.setOpenWindows}

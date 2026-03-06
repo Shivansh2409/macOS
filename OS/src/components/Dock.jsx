@@ -51,7 +51,12 @@ export const Dock = (pop) => {
         >
           <Notebook className="find"></Notebook>
         </div>
-        <div className="icon mail">
+        <div
+          className="icon mail"
+          onClick={() => {
+            window.open("mailto:shivanshrathore@example.com", "__blank");
+          }}
+        >
           <Mail className="m"></Mail>
         </div>
         <div

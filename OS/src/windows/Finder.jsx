@@ -24,8 +24,8 @@ const Finder = (pop) => {
         setSelected={setSelected}
         selected={selected}
         title="Finder"
-        initialX={0}
-        initialY={0}
+        initialX={200}
+        initialY={100}
         Zindex={pop.Index.Finder}
         setIndex={pop.setIndex}
         setOpenWindows={pop.setOpenWindows}

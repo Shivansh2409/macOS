@@ -74,12 +74,14 @@ const Photo = (pop) => {
   return (
     <MacWindow
       width={1200}
-      height={750}
+      height={600}
       title="Photo"
       Zindex={pop.Index.Photo}
       setIndex={pop.setIndex}
       setOpenWindows={pop.setOpenWindows}
       openWindows={pop.openWindows}
+      initialX={1}
+      initialY={1}
     >
       <div className="photo-app">
         {/* Toolbar */}

@@ -68,7 +68,7 @@ const LinksRight = (pop) => {
             <div
               className="card-link twitter"
               onClick={() => {
-                window.open("https://twitter.com", "__blank");
+                window.open("https://x.com/ShivanshRa89853", "__blank");
               }}
             >
               <Twitter className="i"></Twitter>
