@@ -1,46 +1,99 @@
+// macOS Glass List View - Glassmorphism Theme
 .list {
-  color: rgb(255, 255, 255);
+  color: white;
   width: 100%;
   display: flex;
+  height: 100%;
+  overflow: auto;
 
   table {
     width: 100%;
-
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
 
     thead {
-      background-color: #0f0f0f;
+      background: rgba(20, 20, 20, 0.8);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
       th {
-        padding: 0.75rem;
+        padding: 0.75rem 1rem;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
 
     td {
-      border-bottom: 1px solid #333333;
-      padding: 0.75rem;
-      font-weight: 300;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.65rem 1rem;
+      font-weight: 400;
       font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.85);
+
       .f-i {
         width: 1rem;
-        fill: rgb(0, 191, 255);
+        fill: var(--accent-blue);
         margin-right: 0.5rem;
-        color: rgb(0, 191, 255);
+        color: var(--accent-blue);
       }
     }
+
     .f-td {
       display: flex;
       align-items: center;
     }
+
     .row:nth-child(even) {
-      background-color: #1a1a1a;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .row:hover {
-      background-color: #2a2a2a;
+      background: rgba(0, 122, 255, 0.15);
       cursor: pointer;
+    }
+  }
+}
+
+// Responsive List View
+@media (max-width: 768px) {
+  .list {
+    table {
+      thead th {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    table {
+      thead th {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      td {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+
+        .f-i {
+          width: 0.8rem;
+          margin-right: 0.35rem;
+        }
+      }
     }
   }
 }

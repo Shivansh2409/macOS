@@ -1,16 +1,46 @@
+// macOS Glass Theme - Base Styles
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  // macOS Color Palette
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-bg-dark: rgba(30, 30, 30, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-dark: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-blur: 20px;
+
+  // macOS Accent Colors
+  --accent-blue: #007aff;
+  --accent-purple: #af52de;
+  --accent-pink: #ff2d55;
+  --accent-red: #ff3b30;
+  --accent-orange: #ff9500;
+  --accent-yellow: #ffcc00;
+  --accent-green: #34c759;
+  --accent-teal: #5ac8fa;
+
+  // Text Colors
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", sans-serif;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -24,11 +54,80 @@ main {
   background-image: url("/wallpaper.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
+
+  // Glass overlay for depth
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .windows {
     position: relative;
     width: 100%;
     height: 100%;
+    z-index: 1;
   }
 }
 
-/* WebKit browsers (Chrome, Safari, older Edge) */
+// Scrollbar Styling (macOS style)
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+// Selection color
+::selection {
+  background: var(--accent-blue);
+  color: white;
+}
+
+// Responsive Breakpoints
+@media (max-width: 1440px) {
+  :root {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 12px;
+  }
+}
