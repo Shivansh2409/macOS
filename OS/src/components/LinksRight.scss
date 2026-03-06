@@ -1,260 +1,218 @@
-// macOS Glass Links Right Panel - Glassmorphism Theme
-.social {
-  color: rgb(234, 229, 222);
-  padding: 1.5rem;
-  width: 100%;
-  overflow: auto;
+// Links Right Content Panel - Apple App Store Style
+.content-panel {
+  flex: 1;
+  height: 100%;
+  background: rgba(36, 36, 36, 0.95);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  overflow-y: auto;
+  padding: 24px 32px;
 
-  h1 {
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+  .content-header {
+    margin-bottom: 28px;
+
+    h1 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+      margin: 0;
+    }
   }
 
   .card-container {
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
     width: 100%;
-    display: flex;
-    overflow-y: auto;
 
-    .card-social {
-      flex: 1;
-      width: 14rem;
-      padding: 1.5rem 2rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      width: auto;
+    .card-link {
       display: flex;
-      gap: 0.75rem;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
       cursor: pointer;
-      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
 
       &:active {
-        transform: scale(0.95);
+        transform: scale(0.98);
       }
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.3);
+      .i {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 10px;
+        flex-shrink: 0;
+      }
 
-        .i {
-          transform: scale(1.15);
+      .card-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .social-name {
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 15px;
+          font-weight: 500;
+          margin: 0;
+        }
+
+        .social-handle {
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 13px;
+          margin: 0;
         }
       }
 
-      .social-name {
-        letter-spacing: 0.5px;
-        font-weight: 600;
-        font-size: 1.1rem;
+      // Social platform specific colors
+      &.instagram {
+        .i {
+          background: linear-gradient(
+            135deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888
+          );
+          color: white;
+        }
       }
 
-      .i {
-        transition: all 0.3s ease;
-        width: 3.5rem;
-        height: 3.5rem;
-      }
-    }
-
-    .instagram {
-      display: flex;
-      gap: 0.75rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(
-        135deg,
-        rgba(240, 148, 51, 0.15),
-        rgba(230, 104, 60, 0.15),
-        rgba(220, 39, 67, 0.15),
-        rgba(204, 35, 102, 0.15),
-        rgba(188, 24, 136, 0.15)
-      );
-      transition: all 0.3s ease;
-
-      &:hover {
-        border: 1px solid #cc2366;
-        background: linear-gradient(135deg, rgba(240, 148, 51, 0.25));
+      &.github {
+        .i {
+          background: rgba(255, 255, 255, 0.1);
+          color: rgba(255, 255, 255, 0.9);
+        }
       }
 
-      .i {
-        color: #bc1888;
-      }
-    }
-
-    .link-in {
-      background: rgba(0, 195, 255, 0.1);
-      color: rgb(0, 191, 255);
-
-      &:hover {
-        border: 1px solid rgb(0, 191, 255);
-        background: rgba(0, 195, 255, 0.2);
+      &.linkedin {
+        .i {
+          background: #0077b5;
+          color: white;
+        }
       }
 
-      .i {
-        color: rgb(0, 191, 255);
+      &.twitter {
+        .i {
+          background: #1da1f2;
+          color: white;
+        }
+      }
+
+      &.youtube {
+        .i {
+          background: #ff0000;
+          color: white;
+        }
+      }
+
+      &.email {
+        .i {
+          background: rgba(255, 255, 255, 0.1);
+          color: rgba(255, 255, 255, 0.9);
+        }
       }
     }
+  }
 
-    .github-social {
-      color: aliceblue;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding-inline: 2.5rem;
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .ex-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.2s ease;
 
       &:hover {
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .ex-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 4px;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        h3 {
+          color: rgba(255, 255, 255, 0.95);
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0;
+        }
+
+        .company {
+          color: #007aff;
+          font-size: 14px;
+          font-weight: 500;
+          background: rgba(0, 122, 255, 0.15);
+          padding: 4px 10px;
+          border-radius: 6px;
+        }
+      }
+
+      .duration {
+        display: block;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+
+        li {
+          color: rgba(255, 255, 255, 0.7);
+          font-size: 14px;
+          line-height: 1.5;
+          margin-bottom: 6px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
 }
 
-.experiences {
-  padding: 1.5rem;
-  width: 100%;
-  height: 100%;
-  background: rgba(28, 28, 28, 0.8);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  overflow: auto;
-
-  h1 {
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .ex-card {
-    h3 {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-    }
-
-    ul {
-      padding-left: 1rem;
-
-      li {
-        margin-bottom: 0.5rem;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        line-height: 1.4;
-      }
-    }
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-top: 0.75rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-radius: 0.85rem;
-    transition: all 0.3s ease;
-    margin-bottom: 1.5rem;
-
-    &:hover {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.08);
-    }
-  }
-}
-
-// Responsive Links Right
+// Responsive content panel
 @media (max-width: 768px) {
-  .social {
-    padding: 1rem;
+  .content-panel {
+    padding: 20px;
 
-    h1 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
+    .content-header {
+      h1 {
+        font-size: 24px;
+      }
     }
 
     .card-container {
-      gap: 0.75rem;
-
-      .card-social {
-        width: 12rem;
-        padding: 1rem 1.5rem;
-
-        .social-name {
-          font-size: 1rem;
-        }
-
-        .i {
-          width: 2.5rem;
-          height: 2.5rem;
-        }
-      }
-    }
-  }
-
-  .experiences {
-    padding: 1rem;
-
-    .ex-card {
-      padding: 0.85rem;
-
-      ul li {
-        font-size: 0.85rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .social {
-    padding: 0.75rem;
-
-    h1 {
-      font-size: 1.1rem;
-    }
-
-    .card-container {
-      gap: 0.5rem;
-
-      .card-social {
-        width: 100%;
-        min-width: 140px;
-        padding: 0.85rem 1rem;
-
-        .social-name {
-          font-size: 0.9rem;
-        }
-
-        .i {
-          width: 2rem;
-          height: 2rem;
-        }
-      }
-    }
-  }
-
-  .experiences {
-    padding: 0.75rem;
-
-    h1 {
-      font-size: 1rem;
-    }
-
-    .ex-card {
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-
-      h3 {
-        font-size: 0.95rem;
-      }
-
-      ul li {
-        font-size: 0.8rem;
-      }
+      grid-template-columns: 1fr;
     }
   }
 }

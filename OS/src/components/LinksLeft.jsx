@@ -1,13 +1,6 @@
 import React from "react";
 import "./LinksLeft.scss";
-import {
-  Search,
-  Radio,
-  DoorOpen,
-  Paintbrush,
-  Send,
-  Download,
-} from "lucide-react";
+import { Search, Briefcase, Link } from "lucide-react";
 
 const LinksLeft = (pop) => {
   return (
@@ -17,35 +10,27 @@ const LinksLeft = (pop) => {
           <Search className="search-icon"></Search>
           <input type="text" placeholder="Search" />
         </div>
+
+        <div className="section-title">DISCOVER</div>
+
         <div
-          className="Social selected"
-          onClick={() => {
-            pop.setActiveBar("social");
-          }}
-        >
-          <Radio className="i"></Radio>
-          <p>Social Links</p>
-        </div>
-        <div
-          className="experience selected"
+          className={`menu-item ${pop.activeBar === "experience" ? "selected" : ""}`}
           onClick={() => {
             pop.setActiveBar("experience");
           }}
         >
-          <DoorOpen className="i"></DoorOpen>
+          <Briefcase className="i"></Briefcase>
           <p>Experience</p>
         </div>
-        <div className="create selected">
-          <Paintbrush className="i"></Paintbrush>
-          <p>Create</p>
-        </div>
-        <div className="work selected">
-          <Send className="i"></Send>
-          <p>Work</p>
-        </div>
-        <div className="update selected">
-          <Download className="i"></Download>
-          <p>update</p>
+
+        <div
+          className={`menu-item ${pop.activeBar === "links" ? "selected" : ""}`}
+          onClick={() => {
+            pop.setActiveBar("links");
+          }}
+        >
+          <Link className="i"></Link>
+          <p>Links</p>
         </div>
       </div>
     </>
