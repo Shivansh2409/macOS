@@ -3,6 +3,7 @@ import { KeyboardEvent } from "react";
 import "./App.scss";
 import { Dock } from "./components/Dock";
 import Nav from "./components/Nav";
+import Loading from "./components/Loading";
 import Finder from "./windows/Finder";
 import GitHub from "./windows/GitHub";
 import Note from "./windows/Note";
@@ -13,6 +14,7 @@ import Photo from "./windows/Photo";
 import TerminalApp from "./windows/Terminal";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [index, setIndex] = useState({
     GitHub: 1,
     Note: 1,
@@ -123,8 +125,10 @@ function App() {
   });
 
   const [image, setImage] = useState("./image/1.jpeg");
+
   return (
     <>
+      {isLoading && <Loading onLoadComplete={() => setIsLoading(false)} />}
       <main>
         <Nav></Nav>
         <div className="windows">
