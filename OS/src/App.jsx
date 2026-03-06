@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { KeyboardEvent } from "react";
 import "./App.scss";
 import { Dock } from "./components/Dock";
 import Nav from "./components/Nav";
@@ -8,6 +9,7 @@ import Note from "./windows/Note";
 import Pdf from "./windows/Pdf";
 import Spoti from "./windows/Spoti";
 import Links from "./windows/Links";
+import Image from "./windows/Image";
 
 function App() {
   const [index, setIndex] = useState({
@@ -17,6 +19,7 @@ function App() {
     Pdf: 1,
     Spoti: 1,
     Links: 1,
+    Image: 1,
   });
   const [openWindows, setOpenWindows] = useState({
     GitHub: false,
@@ -25,7 +28,81 @@ function App() {
     Pdf: false,
     Spoti: false,
     Links: false,
+    Image: false,
   });
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Only run shortcuts if in 'socials' view
+      // REQUIRE Ctrl key to be pressed
+      if (!e.ctrlKey) return;
+
+      const key = e.key.toLowerCase();
+
+      if (key === "f") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Finder: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Finder: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "g") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, GitHub: true }));
+        setIndex((prev) => ({
+          ...prev,
+          GitHub: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "n") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Note: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Note: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "p") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Pdf: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Pdf: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "s") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Spoti: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Spoti: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "l") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Links: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Links: Math.max(...Object.values(prev)) + 1,
+        }));
+      } else if (key === "i") {
+        e.preventDefault(); // Prevent default browser actions (e.g. Ctrl+P print)
+        console.log(key);
+        setOpenWindows((prev) => ({ ...prev, Image: true }));
+        setIndex((prev) => ({
+          ...prev,
+          Image: Math.max(...Object.values(prev)) + 1,
+        }));
+      }
+    };
+    console.log("he");
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
+
+  const [image, setImage] = useState("./image/1.jpeg");
   return (
     <>
       <main>
@@ -53,6 +130,8 @@ function App() {
               setIndex={setIndex}
               openWindows={openWindows}
               setOpenWindows={setOpenWindows}
+              Image={image}
+              setImage={setImage}
             ></Finder>
           )}
           {openWindows.Pdf && (
@@ -79,6 +158,17 @@ function App() {
               openWindows={openWindows}
               setOpenWindows={setOpenWindows}
             ></Links>
+          )}
+
+          {openWindows.Image && (
+            <Image
+              Index={index}
+              setIndex={setIndex}
+              openWindows={openWindows}
+              setOpenWindows={setOpenWindows}
+              Image={image}
+              setImage={setImage}
+            ></Image>
           )}
         </div>
 

@@ -9,8 +9,8 @@ const Links = (pop) => {
   return (
     <>
       <MacWindow
-        width={350}
-        height={300}
+        width={800}
+        height={400}
         initialX={200}
         initialY={1}
         title="Links"

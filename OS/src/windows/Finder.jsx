@@ -14,6 +14,8 @@ const Finder = (pop) => {
         setSelected={setSelected}
         selected={selected}
         title="Finder"
+        initialX={0}
+        initialY={0}
         Zindex={pop.Index.Finder}
         setIndex={pop.setIndex}
         setOpenWindows={pop.setOpenWindows}
@@ -21,7 +23,16 @@ const Finder = (pop) => {
       >
         <div className="finder-window">
           <FinderLeft />
-          <FinderRight selected={selected} setSelected={setSelected} />
+          <FinderRight
+            selected={selected}
+            setSelected={setSelected}
+            setOpenWindows={pop.setOpenWindows}
+            openWindows={pop.openWindows}
+            Image={pop.image}
+            setImage={pop.setImage}
+            Index={pop.Index}
+            setIndex={pop.setIndex}
+          />
         </div>
       </MacWindow>
     </>

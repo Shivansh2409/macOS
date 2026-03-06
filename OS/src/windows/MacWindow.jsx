@@ -9,6 +9,7 @@ import {
   List as ListIcon,
   Maximize2,
 } from "lucide-react";
+import Links from "./Links";
 
 const MacWindow = ({
   children,
@@ -175,6 +176,16 @@ const MacWindow = ({
                     ...prev,
                     GitHub: Math.max(...Object.values(prev)) + 1,
                   }));
+                } else if (title === "Image") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Image: Math.max(...Object.values(prev)) + 1,
+                  }));
+                } else if (title === "Links") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Links: Math.max(...Object.values(prev)) + 1,
+                  }));
                 }
               }}
             >
@@ -216,6 +227,16 @@ const MacWindow = ({
                       setOpenWindows((prev) => ({
                         ...prev,
                         GitHub: false,
+                      }));
+                    } else if (title === "Image") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Image: false,
+                      }));
+                    } else if (title === "Links") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Links: false,
                       }));
                     }
                   }}
@@ -269,6 +290,16 @@ const MacWindow = ({
                 setIndex((prev) => ({
                   ...prev,
                   GitHub: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Image") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Image: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Links") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Links: Math.max(...Object.values(prev)) + 1,
                 }));
               }
             }}

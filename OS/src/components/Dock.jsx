@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dock.scss";
-import { Github, AppWindow, Notebook } from "lucide-react";
+import { Github, AppWindow, Notebook, Mail } from "lucide-react";
 
 export const Dock = (pop) => {
   return (
@@ -52,7 +52,7 @@ export const Dock = (pop) => {
           <Notebook className="find"></Notebook>
         </div>
         <div className="icon mail">
-          <img src="/icons/mail-o.webp" alt="" />
+          <Mail className="m"></Mail>
         </div>
         <div
           className="icon spotify"
