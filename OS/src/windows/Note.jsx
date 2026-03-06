@@ -196,6 +196,11 @@ const Note = (pop) => {
     }
   };
 
+  const RefreshNotes = () => {
+    localStorage.setItem("macos-notes", "");
+    setNotes(defaultNotes);
+  };
+
   return (
     <MacWindow
       nameOfWindow="Note"
@@ -217,6 +222,7 @@ const Note = (pop) => {
           onTogglePin={togglePin}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
+          refreshNotes={RefreshNotes}
         />
         <NoteContent
           selectedNote={selectedNote}
