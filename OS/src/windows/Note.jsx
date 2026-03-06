@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MacWindow from "./MacWindow";
+import NoteSidebar from "../components/NoteSidebar";
+import NoteContent from "../components/NoteContent";
 import "./Note.scss";
 
 // Default notes data
@@ -194,16 +196,6 @@ const Note = (pop) => {
     }
   };
 
-  // Filter notes based on search
-  const filteredNotes = notes.filter(
-    (note) =>
-      note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      note.content.toLowerCase().includes(searchQuery.toLowerCase()),
-  );
-
-  const pinnedNotes = filteredNotes.filter((n) => n.pinned);
-  const otherNotes = filteredNotes.filter((n) => !n.pinned);
-
   return (
     <MacWindow
       nameOfWindow="Note"
@@ -217,238 +209,27 @@ const Note = (pop) => {
       openWindows={pop.openWindows}
     >
       <div className="notes-app">
-        {/* Sidebar */}
-        <div className="notes-sidebar">
-          <div className="sidebar-header">
-            <div className="folder-row">
-              <svg
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                fill="currentColor"
-              >
-                <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15A4.485 4.485 0 0 0 1.5 10.146Z" />
-              </svg>
-              <span>iCloud</span>
-              <svg
-                viewBox="0 0 24 24"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </div>
-          </div>
-
-          <div className="search-box">
-            <svg
-              viewBox="0 0 24 24"
-              width="14"
-              height="14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-
-          <div className="notes-list">
-            {pinnedNotes.length > 0 && (
-              <div className="notes-section">
-                <h4 className="section-title">Pinned</h4>
-                {pinnedNotes.map((note) => (
-                  <div
-                    key={note.id}
-                    className={`note-item ${selectedNote?.id === note.id ? "active" : ""}`}
-                    onClick={() => handleNoteClick(note)}
-                  >
-                    <div className="note-item-header">
-                      <span className="note-title">{note.title}</span>
-                      <button
-                        className="pin-btn pinned"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          togglePin(note.id);
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          width="12"
-                          height="12"
-                          fill="currentColor"
-                        >
-                          <path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z" />
-                        </svg>
-                      </button>
-                    </div>
-                    <span className="note-date">{note.date}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {otherNotes.length > 0 && (
-              <div className="notes-section">
-                {pinnedNotes.length > 0 && (
-                  <h4 className="section-title">Others</h4>
-                )}
-                {otherNotes.map((note) => (
-                  <div
-                    key={note.id}
-                    className={`note-item ${selectedNote?.id === note.id ? "active" : ""}`}
-                    onClick={() => handleNoteClick(note)}
-                  >
-                    <div className="note-item-header">
-                      <span className="note-title">{note.title}</span>
-                      <button
-                        className="pin-btn"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          togglePin(note.id);
-                        }}
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          width="12"
-                          height="12"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M12 2v8m0 0l4-4m-4 4l-4-4M5 12h14" />
-                        </svg>
-                      </button>
-                    </div>
-                    <span className="note-date">{note.date}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <button className="new-note-btn" onClick={handleAddNote}>
-            <svg
-              viewBox="0 0 24 24"
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M12 5v14M5 12h14" />
-            </svg>
-            New Note
-          </button>
-        </div>
-
-        {/* Main Content */}
-        <div className="notes-content">
-          {selectedNote ? (
-            <>
-              <div className="content-header">
-                {isEditing ? (
-                  <input
-                    type="text"
-                    className="title-input"
-                    value={editTitle}
-                    onChange={(e) => setEditTitle(e.target.value)}
-                    placeholder="Note Title"
-                  />
-                ) : (
-                  <h1>{selectedNote.title}</h1>
-                )}
-                <div className="content-actions">
-                  {isEditing ? (
-                    <button className="action-btn save" onClick={handleSave}>
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="16"
-                        height="16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M20 6 9 17l-5-5" />
-                      </svg>
-                      Save
-                    </button>
-                  ) : (
-                    <button className="action-btn" onClick={handleEdit}>
-                      <svg
-                        viewBox="0 0 24 24"
-                        width="16"
-                        height="16"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-                      </svg>
-                      Edit
-                    </button>
-                  )}
-                  <button
-                    className="action-btn delete"
-                    onClick={handleDelete}
-                    disabled={notes.length <= 1}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              <div className="content-body">
-                {isEditing ? (
-                  <textarea
-                    className="content-textarea"
-                    value={editContent}
-                    onChange={(e) => setEditContent(e.target.value)}
-                    placeholder="Start typing your note..."
-                  />
-                ) : (
-                  <pre className="note-content">
-                    {selectedNote.content || "No content"}
-                  </pre>
-                )}
-              </div>
-            </>
-          ) : (
-            <div className="no-note-selected">
-              <svg
-                viewBox="0 0 24 24"
-                width="48"
-                height="48"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15A4.485 4.485 0 0 0 1.5 10.146Z" />
-              </svg>
-              <p>Select a note to view</p>
-              <button onClick={handleAddNote}>Create New Note</button>
-            </div>
-          )}
-        </div>
+        <NoteSidebar
+          notes={notes}
+          selectedNote={selectedNote}
+          onSelectNote={handleNoteClick}
+          onAddNote={handleAddNote}
+          onTogglePin={togglePin}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+        />
+        <NoteContent
+          selectedNote={selectedNote}
+          isEditing={isEditing}
+          editTitle={editTitle}
+          editContent={editContent}
+          onEdit={handleEdit}
+          onSave={handleSave}
+          onDelete={handleDelete}
+          onTitleChange={setEditTitle}
+          onContentChange={setEditContent}
+          notes={notes}
+        />
       </div>
     </MacWindow>
   );
