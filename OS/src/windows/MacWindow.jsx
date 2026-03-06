@@ -186,6 +186,11 @@ const MacWindow = ({
                     ...prev,
                     Links: Math.max(...Object.values(prev)) + 1,
                   }));
+                } else if (title === "Terminal") {
+                  setIndex((prev) => ({
+                    ...prev,
+                    Terminal: Math.max(...Object.values(prev)) + 1,
+                  }));
                 }
               }}
             >
@@ -242,6 +247,11 @@ const MacWindow = ({
                       setOpenWindows((prev) => ({
                         ...prev,
                         Photo: false,
+                      }));
+                    } else if (title === "Terminal") {
+                      setOpenWindows((prev) => ({
+                        ...prev,
+                        Terminal: false,
                       }));
                     }
                   }}
@@ -310,6 +320,11 @@ const MacWindow = ({
                 setIndex((prev) => ({
                   ...prev,
                   Photo: Math.max(...Object.values(prev)) + 1,
+                }));
+              } else if (title === "Terminal") {
+                setIndex((prev) => ({
+                  ...prev,
+                  Terminal: Math.max(...Object.values(prev)) + 1,
                 }));
               }
             }}
