@@ -4,6 +4,7 @@ import "./App.scss";
 import { Dock } from "./components/Dock";
 import Nav from "./components/Nav";
 import Loading from "./components/Loading";
+import Dev from "./components/Dev";
 import Finder from "./windows/Finder";
 import GitHub from "./windows/GitHub";
 import Note from "./windows/Note";
@@ -131,6 +132,7 @@ function App() {
       {isLoading && <Loading onLoadComplete={() => setIsLoading(false)} />}
       <main>
         <Nav></Nav>
+        <Dev></Dev>
         <div className="windows">
           {openWindows.GitHub && (
             <GitHub

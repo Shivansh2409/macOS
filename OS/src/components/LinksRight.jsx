@@ -122,25 +122,20 @@ const LinksRight = (pop) => {
                 <h3>Technical Lead</h3>
                 <span className="company">AlgoZenith</span>
               </div>
-              <span className="duration">2023 - Present</span>
+              <span className="duration">2025 - Present</span>
               <ul>
-                <li>
-                  Leading a team of developers building educational technology
-                  products
-                </li>
-                <li>
-                  Architecting scalable solutions for online learning platforms
-                </li>
+                <li>Leading a team of educational technology products</li>
+                <li>Solutions for online learning platforms</li>
                 <li>Mentoring junior developers and conducting code reviews</li>
               </ul>
             </div>
 
             <div className="ex-card">
               <div className="ex-header">
-                <h3>Senior Developer</h3>
-                <span className="company">Tech Corp</span>
+                <h3>Technical Lead</h3>
+                <span className="company">IIC SRMCEM</span>
               </div>
-              <span className="duration">2021 - 2023</span>
+              <span className="duration">2025 - Present</span>
               <ul>
                 <li>
                   Developed multiple web applications using React and Node.js
@@ -148,23 +143,7 @@ const LinksRight = (pop) => {
                 <li>
                   Implemented CI/CD pipelines and improved development workflows
                 </li>
-                <li>
-                  Collaborated with cross-functional teams to deliver
-                  high-quality products
-                </li>
-              </ul>
-            </div>
-
-            <div className="ex-card">
-              <div className="ex-header">
-                <h3>Full Stack Developer</h3>
-                <span className="company">StartupXYZ</span>
-              </div>
-              <span className="duration">2019 - 2021</span>
-              <ul>
-                <li>Built and maintained full-stack web applications</li>
-                <li>Worked with RESTful APIs and database design</li>
-                <li>Participated in agile development processes</li>
+                <li>Collaborated with cross-functional teams to deliver</li>
               </ul>
             </div>
           </div>

@@ -14,7 +14,7 @@ const Time = () => {
         minute: "2-digit",
         hour12: true,
       });
-      setCurrentTime(`${day} ${month} ${date} ` + ` ${time}`);
+      setCurrentTime(`${day} ${date} ${month} ` + ` ${time}`);
     };
 
     updateTime();
