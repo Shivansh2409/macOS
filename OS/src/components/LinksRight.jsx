@@ -94,13 +94,13 @@ const LinksRight = (pop) => {
             <div
               className="card-link email"
               onClick={() => {
-                window.open("mailto:shivanshrathore@example.com", "__blank");
+                window.open("mailto:shivanshrathore61@gmail.com", "__blank");
               }}
             >
               <Mail className="i"></Mail>
               <div className="card-info">
                 <p className="social-name">Email</p>
-                <p className="social-handle">shivanshrathore@example.com</p>
+                <p className="social-handle">shivanshrathore61@gmail.com</p>
               </div>
             </div>
           </div>
